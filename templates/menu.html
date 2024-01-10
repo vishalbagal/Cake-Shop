@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>CakeZone - Menu</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <link href="static/images/favicon.ico" rel="icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Oswald:wght@500;600;700&family=Pacifico&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="static/css/style.css" rel="stylesheet">
+
+    <style>
+        .pri {
+            --bs-bg-opacity: 1;
+            background-color: #ffba00;
+        }
+
+        .sec {
+            --bs-bg-opacity: 5;
+            background-color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container-fluid px-0 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-4 text-center sec py-3">
+                <div class="d-inline-flex align-items-center justify-content-center">
+                    <i class="bi bi-envelope fs-1 text-primary me-3"></i>
+                    <div class="text-start">
+                        <h6 class="text-uppercase mb-1">Email Us</h6>
+                        <span>vishal@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center pri border-inner py-3">
+                <div class="d-inline-flex align-items-center justify-content-center">
+                    <a href="/" class="navbar-brand">
+                        <h1 class="m-0 text-uppercase text-white"><i
+                                class="fa fa-birthday-cake fs-1 text-dark me-3"></i>CakeZone</h1>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center sec py-3">
+                <div class="d-inline-flex align-items-center justify-content-center">
+                    <i class="bi bi-phone-vibrate fs-1 text-primary me-3"></i>
+                    <div class="text-start">
+                        <h6 class="text-uppercase mb-1">Call Us</h6>
+                        <span>+91 9823305859</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-0">
+        <a href="/" class="navbar-brand d-block d-lg-none">
+            <h1 class="m-0 text-uppercase text-white"><i class="fa fa-birthday-cake fs-1 text-primary me-3"></i>CakeZone
+            </h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto mx-lg-auto py-0">
+                <a href="/" class="nav-item nav-link">Home</a>
+                <a href="/about" class="nav-item nav-link">About Us</a>
+                <a href="/menu" class="nav-item nav-link active">Menu & Pricing</a>
+                <a href="/contact" class="nav-item nav-link">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid bg-dark bg-img p-5 mb-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 text-uppercase text-white">Menu & Pricing</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid about py-5">
+        <div class="container">
+            <div class="section-title position-relative text-center mx-auto mb-5 pb-3" style="max-width: 600px;">
+                <h1 class="display-4 text-uppercase">Explore Our Cakes</h1>
+            </div>
+            <div class="tab-class text-center">
+                <ul class="nav nav-pills d-inline-flex justify-content-center bg-dark text-uppercase border-inner p-4">
+                    <li><a class="anchor m-4 text-white" href="/">All</a></li>
+                    <li><a class="anchor m-4 text-white" href="/catfilter/1">Party Cake</a></li>
+                    <li><a class="anchor m-4 text-white" href="/catfilter/2">Kids Cake</a></li>
+                    <li><a class="anchor m-4 text-white" href="/catfilter/3">Photo Cake</a></li>
+                    <li><a class="anchor m-4 text-white" href="/catfilter/4">Regular Cake</a></li>
+                    <li><a class="anchor m-4 text-white" href="/catfilter/5">Birthday Cake</a></li>
+                    <li><a class="anchor m-4 text-white" href="/catfilter/6">Eggless Cake</a></li>
+                    <li><a class="anchor m-4 text-white" href="/catfilter/7">Anniversary Cake</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row my-4">
+
+
+        <div class="col-md-9">
+            <div class="row">
+                {% for i in cake %}
+                <div class="col-md-4 mt-3">
+                    <div class="card" style="width: 100%; height: 400px;">
+                        <img src="{{i.pimage.url}}" style="width: 100%; height: 200px;" class="card-img-top" alt="cake">
+                        <div class="card-body">
+                            <h5 class="card-title">{{i.name}}</h5>
+                            <p class="card-text">Rs.{{i.price}}</p>
+                            {% if i.cat == 1 %}
+                            <p><b>Category:</b>Party Cake</p>
+                            {% elif i.cat == 2 %}
+                            <p><b>Category:</b>Kids Cake</p>
+                            {% elif i.cat == 3 %}
+                            <p><b>Category:</b>Photo Cake</p>
+                            {% elif i.cat == 4 %}
+                            <p><b>Category:</b>Regular Cake</p>
+                            {% elif i.cat == 5 %}
+                            <p><b>Category:</b>Birthday Cake</p>
+                            {% elif i.cat == 6 %}
+                            <p><b>Category:</b>Eggless Cake</p>
+                            {% else %}
+                            <p><b>Category:</b>Anniversary Cake</p>
+                            {% endif %}
+                            <a href="/detail/{{i.id}}" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-offer text-secondary" style="margin-top: 135px">
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-lg-4 col-md-6 mt-lg-n5">
+                    <div
+                        class="d-flex flex-column align-items-center justify-content-center text-center h-100 pri border-inner p-4">
+                        <a href="index.html" class="navbar-brand">
+                            <h1 class="m-0 text-uppercase text-white"><i
+                                    class="fa fa-birthday-cake fs-1 text-dark me-3"></i>CakeZone</h1>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6 text-white">
+                    <div class="row gx-5">
+                        <div class="col-lg-4 col-md-12 pt-5 mb-5">
+                            <h4 class="text-primary text-uppercase mb-4">Get In Touch</h4>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-geo-alt text-primary me-2"></i>
+                                <p class="mb-0">Gurudwara Road, Near Akurdi Railway Station, Akurdi, Pune - 411033</p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-envelope-open text-primary me-2"></i>
+                                <p class="mb-0">vishal@gmail.com</p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-telephone text-primary me-2"></i>
+                                <p class="mb-0">+91 9823305859</p>
+                            </div>
+                            <div class="d-flex mt-4">
+                                <a class="btn btn-lg btn-primary btn-lg-square border-inner rounded-0 me-2" href="#"><i
+                                        class="fab fa-twitter fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square border-inner rounded-0 me-2" href="#"><i
+                                        class="fab fa-facebook-f fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square border-inner rounded-0 me-2" href="#"><i
+                                        class="fab fa-linkedin-in fw-normal"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5 text-white">
+                            <h4 class="text-primary text-uppercase mb-4">Quick Links</h4>
+                            <div class="d-flex flex-column justify-content-start">
+                                <a class="text-secondary mb-2 text-white" href="/"><i
+                                        class="bi bi-arrow-right text-white me-2"></i>Home</a>
+                                <a class="text-secondary mb-2 text-white" href="/about"><i
+                                        class="bi bi-arrow-right text-primary me-2 text-white"></i>About Us</a>
+                                <a class="text-secondary text-white" href="/contact"><i
+                                        class="bi bi-arrow-right text-primary me-2 text-white"></i>Contact Us</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                            <h4 class="text-primary text-uppercase mb-4">Register</h4>
+                            <form action="/register">
+                                <div class="input-group">
+                                    <input type="text" class="form-control border-white p-3" placeholder="Your Email">
+                                    <button class="btn btn-primary">Sign Up</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="btn btn-primary border-inner py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/lib/easing/easing.min.js"></script>
+    <script src="static/lib/waypoints/waypoints.min.js"></script>
+    <script src="static/lib/counterup/counterup.min.js"></script>
+    <script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <script src="static/js/main.js"></script>
+</body>
+
+</html>
